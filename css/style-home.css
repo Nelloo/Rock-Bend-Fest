@@ -121,3 +121,52 @@ nav a:hover
     text-align: center;
     margin-bottom: 30px;
 }
+
+#map
+{
+    height:80vh;
+    margin-top: 100px;
+    background-color: #191919;
+}
+
+#map iframe
+{
+    width:100%;
+    height:100%;
+    opacity:0.3;
+}
+
+#map .overlay
+{
+/*    background-color: rgba(255,0,0,0.1);*/
+    position: relative;
+    height:80.5vh;
+    margin-top: -81vh;
+}
+
+#map h1
+{
+    margin: 0;
+    text-align: center;
+    color: #f1f1f1;
+    padding-top: 27vh;
+}
+
+#map .lien-map
+{
+    color:#fff;
+    display:block;
+    width:200px;
+    margin: 12vh auto 0;
+    text-align: center;
+    padding-top:10px;
+    padding-bottom:10px;
+    border:1px solid #fff;
+    transition: background-color 0.3s ease-in-out;
+}
+
+#map .lien-map:hover
+{
+    background-color: rgba(255,0,0,0.5);
+    text-decoration: none;
+}
