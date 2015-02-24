@@ -1,0 +1,40 @@
+* {margin: 0;padding: 0}
+
+html
+{
+    background-color: #191919;
+}
+
+a
+{
+    display: block;
+}
+
+#logo, #logo2
+{
+    position: absolute;
+    height:30vh;
+    top:35vh;
+    left:41.5vw;
+}
+
+#logo
+{
+    z-index: 100;
+}
+
+#logo2
+{
+    -webkit-animation: pulse 1s infinite ease-in; /* Chrome, Safari, Opera */
+    animation: pulse 1s infinite ease-in;
+    z-index: 90;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 0.5}
+    100% { transform: scale(1.4); opacity: 0 }
+}
+
+@-webkit-keyframes pulse {
+    0% { -webkit-transform: scale(1); opacity: 0.5}
+    100% { -webkit-transform: scale(1.4); opacity: 0 }
