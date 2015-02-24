@@ -16,10 +16,10 @@
     
     <nav>
         <ul>
-            <li id="infos"><a href="#">Infos</a></li>
-            <li id="billeterie"><a href="#">Billeterie</a></li>
-            <li id="partenaires"><a href="#">Partenaires</a></li>
-            <li id="contact"><a href="#">Contact</a></li>
+            <li><a href="#">Infos</a></li>
+            <li><a href="#">Billeterie</a></li>
+            <li><a href="#">Partenaires</a></li>
+            <li><a href="#">Contact</a></li>
         </ul>
     </nav>
     
@@ -43,6 +43,33 @@
                 <h1>Comment se rendre au Rock Bend ?</h1>
                 <a class="lien-map" href="https://www.google.fr/maps/place/Maison+des+%C3%89tudiants/@50.2803794,2.7948129,13z/data=!4m5!1m2!2m1!1smaison+des+%C3%A9tudiants+arras!3m1!1s0x0000000000000000:0xb6f6dacd70e7005d" target="_blank">Voir sur Google Maps</a>
             </div>
+        </div>
+        
+        <div class="row" id="contact">
+            <h1>Contactez-nous</h1>
+            <div class="col-md-3"></div>
+            <div class="col-md-4">
+                <form entype="text/plain" action="mailto:rockbendcontact@gmail.com" method="post">
+                    <input name="nom" type="text" placeholder="Votre nom" id="nom" required>
+                    <br/><input name="mail" type="mail" placeholder="Votre adresse mail" id="mail" required>
+                    <br/><textarea required name="message" placeholder="Votre message..." id="message" cols="30" rows="10"></textarea>
+                    <br/><input type="submit" name="send" id="send" value="Envoyer">
+                </form>
+            </div>
+            <div class="col-md-3">
+                <p class="coordonnees">
+                    <span class="subtitle">Par mail :</span>
+                    <span class="mail-rbf">rockbendcontact@gmail.com</span>
+                    <span class="subtitle">Par téléphone :</span>
+                    <span class="jude">Louisa Wable (Présidente du RBF)<br/>06.61.73.11.38</span>
+                    <span class="subtitle">Par courrier :</span>
+                    <span class="adresse">Rock Bend Festival
+                    <br/>Bureau des Étudiants, département MMI
+                    <br/>Rue de l'Université
+                    <br/>62300 LENS</span>
+                </p>
+            </div>
+            <div class="col-md-2"></div>
         </div>
         
     </div>
