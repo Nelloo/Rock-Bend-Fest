@@ -20,6 +20,19 @@ header
     z-index: 150;
 }
 
+header img
+{
+    height:34vh;
+    margin-top: 3vh;
+    margin-left: 3vw;
+    transition:transform 0.6s ease;
+}
+
+header img:hover
+{
+    transform: scale(1.05);
+}
+
 nav
 {
     background-color: #333;
@@ -304,6 +317,13 @@ nav .home-but:hover
     text-align: center;
     color:#f1f1f1;
     padding-top: 30px;
+}
+
+#contact .success_msg
+{
+    color:rgb(255,75,75);
+    padding-top: 10px;
+    text-align: center;
 }
 
 #contact form

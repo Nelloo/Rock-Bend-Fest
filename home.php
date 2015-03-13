@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php session_start(); ?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,7 +13,9 @@
 
 <body>
     
-    <header></header>
+    <header>
+        <a href="home.php"><img src="img/logo_big.png" title="Rock Bend Festival 2015" alt=""></a>
+    </header>
     
     <nav>
         <ul>
@@ -97,9 +100,15 @@
         
         <div class="row" id="contact">
             <h1>Contactez-nous</h1>
+            <?php
+                if(isset($_SESSION['message'])) {
+                    echo $_SESSION['message'];
+                    unset($_SESSION['message']);
+                }
+            ?>
             <div class="col-md-3"></div>
             <div class="col-md-4">
-                <form entype="text/plain" action="mailto:rockbendcontact@gmail.com" method="post">
+                <form action="traitement.php" method="post">
                     <input name="nom" type="text" placeholder="Votre nom" id="nom" required>
                     <br/><input name="mail" type="mail" placeholder="Votre adresse mail" id="mail" required>
                     <br/><textarea required name="message" placeholder="Votre message..." id="message" cols="30" rows="10"></textarea>
@@ -109,7 +118,7 @@
             <div class="col-md-3">
                 <p class="coordonnees">
                     <span class="subtitle">Par mail :</span>
-                    <span class="mail-rbf">rockbendcontact@gmail.com</span>
+                    <span class="mail-rbf"><a href="mailto:rockbendcontact@gmail.com">rockbendcontact@gmail.com</a></span>
                     <span class="subtitle">Par téléphone :</span>
                     <span class="jude">Louisa Wable (Présidente du RBF)<br/>06.61.73.11.38</span>
                     <span class="subtitle">Par courrier :</span>
