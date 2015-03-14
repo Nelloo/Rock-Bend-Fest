@@ -5,9 +5,17 @@ html
     background-color: #191919;
 }
 
+h1
+{
+    background-color: #191919;
+    text-align: center;
+    margin-top: 20vh;
+    color:#f1f1f1;    
+}
+
 a
 {
-    display: block;
+    display: none;
 }
 
 #logo, #logo2

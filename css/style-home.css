@@ -81,6 +81,7 @@ nav .text-but:hover
     text-decoration: none;
     color:#333;
     background-color: #f1f1f1;
+    cursor: pointer;
 }
 
 nav .home-but
@@ -100,6 +101,7 @@ nav .home-but img
 nav .home-but:hover
 {
     background-color: #000;
+    cursor: pointer;
     -webkit-filter:invert(1);   
 }
 
@@ -154,7 +156,7 @@ nav .home-but:hover
 #res-sociaux h1
 {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 60px;
 }
 
 #groups
@@ -240,10 +242,134 @@ nav .home-but:hover
     width:50%;
 }
 
+#billeterie
+{
+    background-color: #f1f1f1;
+    margin-top:60px;
+    padding-top: 20px;
+    padding-bottom: 100px;
+}
+
+#billeterie h1
+{
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#billeterie h2
+{
+    text-align: center;
+    font-size: 20px;
+}
+
+#billeterie_form
+{
+    position: fixed;
+    z-index: 1000;
+    background-color: rgba(0,0,0,0.9);
+    height:100vh;
+    width:100vw;
+    top:0;
+}
+
+#billeterie_form legend
+{
+    color:#f1f1f1;
+    text-align: center;
+    border-bottom-style:inset;
+    display:inline-block;
+    width:30vw;
+    margin:25vh auto 7vh;
+    font-size:24px;
+}
+
+#billeterie_form form
+{
+    margin-top:40px;
+    color:#f1f1f1;
+}
+
+#billeterie_form form table
+{
+    margin:0 auto;
+    text-align: right;
+}
+
+#billeterie_form .error_msg
+{
+    color:#e30613;
+    font-weight: bold;
+    padding-bottom: 3vh;
+    text-align: center;
+}
+
+#billeterie_form input[type="submit"]
+{
+    margin-top: 40px;
+    padding:6px 15px;
+    font-size: 14px;
+    color:#f1f1f1;
+    border:#f1f1f1 1px solid;
+    background-color: transparent;
+    transition:background-color 0.3s ease;
+}
+
+#billeterie_form input[type="submit"]:hover
+{
+    background-color: #e30613;
+}
+
+#billeterie_form input[type="text"], #billeterie_form input[type="email"]
+{
+    padding-left: 5px;
+    font-style: italic;
+    color:#333;
+    width:100%;
+    margin-left:10px;
+}
+
+#billeterie_form #back
+{
+    color:#e30613;
+    text-align: center;
+    position: fixed;
+    margin-top:18vh;
+    margin-left:46.5vw;
+}
+
+#billeterie_form #back:hover
+{
+    cursor: pointer;
+    text-decoration: underline;   
+}
+
+#billeterie #reserver
+{
+    text-align: center;
+}
+
+#btn_billet
+{
+    display: inline-block;
+    padding:12px 24px;
+    font-size:16px;
+    border:1px #333 solid;
+    margin-top: 60px;
+    color:#333;
+    transition:all 0.3s ease-in-out;
+}
+
+#btn_billet:hover
+{
+    cursor: pointer;
+    background-color: rgba(227, 6, 19, 0.8);
+    color:#f1f1f1;
+    text-decoration: none;
+}
+
 #map
 {
     height:80vh;
-    margin-top: 100px;
     background-color: #191919;
 }
 
@@ -390,4 +516,9 @@ nav .home-but:hover
         text-align: center;
         margin-top: 60px;
     }
+}
+
+.mail-rbf a
+{
+    color:rgba(255,0,0,0.9);
 }

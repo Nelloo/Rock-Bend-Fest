@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<?php session_start(); ?>
+<?php session_start(); include("connexion.php"); ?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,6 +9,7 @@
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     
     <link rel="stylesheet" href="css/style-home.css">
+    <link rel="icon" href="img/logo.png">
 </head>
 
 <body>
@@ -19,13 +20,43 @@
     
     <nav>
         <ul>
-            <li><a class="home-but" href="#"><img src="img/home.png" alt=""></a></li>
-            <li><a class="text-but" href="#">Infos</a></li>
-            <li><a class="text-but" href="#">Billeterie</a></li>
-            <li><a class="text-but" href="#">Partenaires</a></li>
-            <li><a class="text-but" href="#">Contact</a></li>
+            <li><span class="home-but" onclick="$('header').animatescroll({scrollSpeed:800});"><img src="img/home.png" alt=""></span></li>
+            <li><span class="text-but" onclick="$('#groups').animatescroll({scrollSpeed:1000});">&nbsp;Programme&nbsp;</span></li>
+            <li><span class="text-but" onclick="$('#billeterie').animatescroll({scrollSpeed:1000});">Billeterie</span></li>
+            <li><span class="text-but" onclick="$('#partenaires').animatescroll({scrollSpeed:1000, padding:200});">Partenaires</span></li>
+            <li><span class="text-but" onclick="$('#contact').animatescroll({scrollSpeed:1000});">Contact</span></li>
         </ul>
     </nav>
+    
+    <div id="billeterie_form" style='display:none;'>        
+        <p id="back">Retour au site</p>
+        <form action="billeterie.php" method="post">
+            <legend>Réservation de billet</legend>
+            <table>
+                <?php if (isset($_SESSION['erreur'])) {
+                    echo "<tr>";
+                    echo "<td colspan='2' class='error_msg'>".$_SESSION['erreur']."</td>";
+                    echo "</tr>";
+                    unset($_SESSION["erreur"]);
+                } ?>
+                <tr>
+                    <td><label for="nom">Votre nom : &nbsp;</label></td>
+                    <td><input required id="nom" placeholder="Nom de famille" name="nom" type="text"></td>
+                </tr>
+                <tr>
+                    <td><label for="prenom">Votre prénom : &nbsp;</label></td>
+                    <td><input required id="prenom" placeholder="Prénom" name="prenom" type="text"></td>
+                </tr>
+                <tr>
+                    <td><label for="mail">Votre mail : &nbsp;</label></td>
+                    <td><input required id="mail" placeholder="Adresse mail" name="mail" type="email"></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><center><input type="submit" name="valider" value="Réserver"></center></td>
+                </tr>
+            </table>
+        </form>
+    </div>
     
     <div id="content" class='container-fluid'>
         <div class="row" id="res-sociaux">
@@ -84,6 +115,18 @@
             </div>
         </div>
         
+        <div class="row" id="billeterie">
+            <h1>Billeterie</h1>
+            <?php
+                $sql = "SELECT * FROM billeterie";
+                $query = $pdo->prepare($sql);
+                $query->execute();
+                $places = $query->fetch();
+            ?>
+            <h2>Il reste <span style='color:#e30613; font-weight:bold;'><?php echo $places['places']; ?></span> places. Réservez la vôtre ci-dessous !</h2>
+            <div id="reserver"><p id="btn_billet">Je réserve ma place !</p></div>
+        </div>
+                
         <div class="row" id="map">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d40793.897845920765!2d2.794812936181639!3d50.280379373465536!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0000000000000000%3A0xb6f6dacd70e7005d!2sMaison+des+%C3%89tudiants!5e0!3m2!1sfr!2sfr!4v1424788912874" frameborder="0" style="border:0"></iframe>
             <div class="overlay">
@@ -94,8 +137,9 @@
         
         <div class="row" id="partenaires">
             <a href="http://www.univ-artois.fr/" target="_blank"><img class="partner" src="img/logo-univ-artois.png" alt="Université d'Artois"></a>
-            <a href="http://www.crous-lille.fr/" target="_blank"><img class="partner" src="img/logo-crous-lille.jpg" alt="CROUS de Lille"></a>
             <a href="http://www.iut-lens.univ-artois.fr/" target="_blank"><img class="partner" src="img/logo-iut-lens.png" alt="IUT de Lens"></a>
+            <a href="http://www.crous-lille.fr/" target="_blank"><img class="partner" src="img/logo-crous-lille.jpg" alt="CROUS de Lille"></a>
+            <a href="https://www.facebook.com/bde.srclens?fref=ts" target="_blank"><img class="partner" src="img/logo-bde.png" alt="BDE MMI"></a>
         </div>
         
         <div class="row" id="contact">
@@ -108,7 +152,7 @@
             ?>
             <div class="col-md-3"></div>
             <div class="col-md-4">
-                <form action="traitement.php" method="post">
+                <form action="mail.php" method="post">
                     <input name="nom" type="text" placeholder="Votre nom" id="nom" required>
                     <br/><input name="mail" type="mail" placeholder="Votre adresse mail" id="mail" required>
                     <br/><textarea required name="message" placeholder="Votre message..." id="message" cols="30" rows="10"></textarea>
@@ -137,6 +181,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="script/script.js"></script>
+    <script src="animatescroll/animatescroll.js" type="text/javascript"></script>
 </body>
 
 </html>
